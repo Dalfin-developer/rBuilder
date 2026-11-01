@@ -9,6 +9,8 @@ import View from './pages/View'
 import Pnf from './pages/Pnf'
 import Header from './components/Header'
 import Footer from './components/Footer'
+import { ToastContainer, toast } from 'react-toastify';
+import ProfileCard from './components/ProfileCard'
 
 function App() {
 
@@ -27,9 +29,14 @@ function App() {
         <Route path='/resume/:id' element={<View/>} />
         <Route path='/downloads' element={<Download/>} />
         <Route path='/*' element={<Pnf/>} />
+        <Route path='/ProfileCard' element={<ProfileCard/>} />
 
       </Routes>   
       <Footer/>
+      <ToastContainer 
+      position="top-center"
+      theme="colored"
+      autoClose={3000}/>
     </>
   )
 }

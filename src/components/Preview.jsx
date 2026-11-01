@@ -1,25 +1,31 @@
 import { Button, Divider } from '@mui/material'
 import React from 'react'
 
-function Preview() {
+function Preview({resumeDetails}) {
   return (
     <div>
-      <h1>Full Name</h1>
-      <p className='fs-5 lh-1'>Phone:</p>
-      <p className='fs-5 lh-1'>Email:</p>
-      <p className='fs-5 lh-1'>Github:</p>
-      <p className='fs-5 lh-1'>Linkedin:</p>
-      <p className='fs-5 '>Location:</p>
+      <h1>{resumeDetails?.fullname}</h1>
+      <p className='fs-5 lh-1'>Phone:{resumeDetails?.phone}</p>
+      <p className='fs-5 lh-1'>Email: {resumeDetails?.email}</p>
+      <p className='fs-5 lh-1'>Github: {resumeDetails?.github}</p>
+      <p className='fs-5 lh-1'>Linkedin:{resumeDetails?.linkedin}</p>
+      <p className='fs-5'>Location:{resumeDetails?.location}</p>
       <Divider className='bg-dark my-2'/>
       <h2>Professional Summary</h2>
-      <p>summary</p>
+      <p className='fs-5' >{resumeDetails?.summary}</p>
       <Divider className='bg-dark my-2'/>
       <h2>Technical Skills</h2>
-      <span><Button variant='text' className='bg-dark text-light rounded'>SKILL</Button></span>
+      {/* Duplicating skills */}
+      <div className='d-flex flex-wrap gap-2'>
+        {resumeDetails?.skills?.map(skill=>(
+                <Button key={skill} variant='text' className='bg-dark text-light rounded'>{skill}</Button>
+  
+        ))}
+      </div>
       <Divider className='bg-dark my-2'/>
-      <p>Bachelor's Degree In : </p>
-      <p>University/College name : </p>
-      <p>Year  Of Graduation : </p>
+      <p className='fs-5'>Bachelor's Degree In : {resumeDetails?.degree}</p>
+      <p className='fs-5'>University/College name :{resumeDetails?.college} </p>
+      <p className='fs-5'>Year  Of Graduation :{resumeDetails?.year} </p>
 
     </div>
   )
